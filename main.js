@@ -1,4 +1,6 @@
+
 let localData = [];
+let localDataIndex;
 const container = document.querySelector('.container') 
 const focusStyle = document.querySelector('#itemFocus')
 const thumbnails = document.querySelector('#thumbnails')
@@ -33,18 +35,38 @@ const toggleOff = function(){
 
 const showImage = function(e){
     // console.log(e.target.src)
-    // mainFocusImage.innerHTML = '';
+    mainFocusImage.innerHTML = '';
     // mainFocusImage.appendChild(e.target);
+    const itemImageInside4 = document.createElement('img');
+    itemImageInside4.setAttribute("class", "mainImageInside")
+    mainFocusImage.appendChild(itemImageInside4)
     document.querySelector('.mainImageInside').src = e.target.src;
 }
+
+const showVideo = function(){
+    mainFocusImage.setAttribute('class', 'videoWrapper')
+    mainFocusImage.innerHTML = localData[0][localDataIndex]['Video'];
+}
+
+const showClose = function(){
+ document.querySelector('.textClose').innerHTML = 'CLOSE';
+}
+
+const dontShowClose = function(){
+    document.querySelector('.textClose').innerHTML = '';
+   }
 
 const focusIn = function(e){
 
     const close = document.querySelector('#close')
-    close.addEventListener('click', toggleOff)
+    close.addEventListener('click', toggleOff);
+    close.addEventListener('mouseover', showClose);
+    close.addEventListener('mouseout', dontShowClose);
+    
 
     let localObject = localData[0][e.target.dataset.index]
-
+    localDataIndex = e.target.dataset.index;
+    // console.log(localDataIndex);
         
         
         if(localObject['imageURL1'] != ''){
@@ -63,6 +85,14 @@ const focusIn = function(e){
             thumbnails.appendChild(itemImageInside3);
             document.querySelector('.mainImageInside3').src = localObject['imageURL2'];
         }
+
+        if(localObject['Video'] != ''){   
+          const videoContainer = document.createElement('img')
+          videoContainer.addEventListener("mouseover", showVideo)
+          videoContainer.setAttribute('class', "videoThumb")
+          videoContainer.src = "product_video.svg"
+          thumbnails.appendChild(videoContainer);
+        }                          
         
         if(localObject['imageURL1'] != ''){
         

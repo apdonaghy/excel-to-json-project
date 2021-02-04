@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Play Visions</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Work+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
     <script
@@ -47,11 +47,35 @@
           height:65px;
       }
 
-      footer{
-          background-image: linear-gradient(to right, #2aafec, #3b70ed);
+      .line{
+        background-image: linear-gradient(to right, #2aafec, #3b70ed);
           width:100%;
-          height:125px;
-          margin-top:5em;
+          height:10px;
+          margin-top:7em;
+      }
+
+      footer{
+        background-image: linear-gradient(to right, rgb(9, 15, 28), #0d2b4b);
+          /* width:100%; */
+          height:150px;
+          color:white;
+          padding:30px 20px 20px 20px;
+         
+      }
+      .flex{
+        display:flex;
+          flex:wrap;
+      }
+      footer a{
+          /* text-decoration:none; */
+          color:white;
+          line-height: 1.25em;;
+      }
+
+      footer a:hover{
+          transition:.2s;
+          /* text-decoration:none; */
+          color:#2aafec;
       }
       .logo{
         width:18em;
@@ -140,21 +164,26 @@
         width:80%;
         padding-top:40px;
     }
-    .mainImageInside2, .mainImageInside3{
+
+   
+    .mainImageInside2, .mainImageInside3, .videoThumb{
           width:100%;
           margin-bottom:5px;
           border: 3px solid rgb(228, 228, 228);
           border-radius: 4px;
           cursor:pointer;
         }
-        .mainImageInside2:hover, .mainImageInside3:hover{
+        .mainImageInside2:hover, .mainImageInside3:hover, .videoThumb:hover{
             border: 3px solid #3b70ed;
             border-radius: 4px;
             transition:.2s;
         }
 
+        
+
         .mainImageInside{
-          width:100%
+          width:100%;
+          max-width:600px;  
         }
 
     #thumbnails{
@@ -165,7 +194,7 @@
 
     #mainFocusImage{
         width:40%;
-        max-width:600px;
+       
         margin:15px;
     }
     #productInfo{
@@ -225,7 +254,38 @@
         font-weight: 200;
         color:#3b70ed;
     }
-    
+    .textClose{
+        text-align: center;
+        margin-top:7px;
+    }
+    .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    }
+    .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: auto; */
+    }
+    .footerLogo{
+        width:80px;
+    }
+
+    .footerDiv{
+        width:16%;
+        padding:15px;
+    }
+    .customerService{
+      font-weight: 100;
+    }
+    .copyright{
+        font-size: .75em;
+        text-align: center;
+        color: #2aafec;
+    }
   </style>
 </head>
 <body>
@@ -239,7 +299,10 @@
             <div id="productInfo">
                 
             </div> 
+            <div>
             <span id="close">X</span>
+            <p class="textClose"></p>
+            </div>
         </div>
     </div>
    
@@ -249,7 +312,17 @@
 
         <h1>2021 Zoo Products</h1>
     <div class="container"></div>
-    <footer></footer>
+    <div class="line"></div>
+    <footer>
+        <div class="flex">
+        <div class="footerDiv"><img class="footerLogo" src='logo_2.svg'/></div>
+        <a class="footerDiv" href="https://www.playvisions.com/64/home-page.htm">playvisions.com</a>
+        <a class="footerDiv" href="https://www.playvisions.com/73/register.htm">Register to buy our products online at wholesale price</a>
+        <a class="footerDiv" href="mailto:sales@playvisions.com">Contact our sales department at sales@playvisions.com</a>
+        <p class="footerDiv customerService">Call our Customer Service Line at 800.678.8697 ext.126</p>
+        </div>
+        <p class="copyright">&#169 2021 Play Visions</p>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>
