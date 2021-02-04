@@ -1,6 +1,9 @@
 let localData = [];
-
-
+const container = document.querySelector('.container') 
+const focusStyle = document.querySelector('#itemFocus')
+const thumbnails = document.querySelector('#thumbnails')
+const mainFocusImage = document.querySelector('#mainFocusImage')
+const productInfo = document.querySelector('#productInfo')
 
 let prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
@@ -17,37 +20,98 @@ window.onscroll = function () {
 }
 
 
-const container = document.querySelector('.container') 
-const focusStyle = document.querySelector('#itemFocus')
-
 let toggleOn = false;
 
 
 const toggleOff = function(){
-    if(toggleOn === true){
-        toggleOn = false;
-        focusStyle.classList.remove("itemFocus");
-        focusStyle.style.display = 'none';
-        }
+ 
+        $(focusStyle).fadeOut();
+        thumbnails.innerHTML = '';
+        mainFocusImage.innerHTML = '';
+        productInfo.innerHTML = '';
+} 
+
+const showImage = function(e){
+    // console.log(e.target.src)
+    // mainFocusImage.innerHTML = '';
+    // mainFocusImage.appendChild(e.target);
+    document.querySelector('.mainImageInside').src = e.target.src;
 }
 
 const focusIn = function(e){
+
+    const close = document.querySelector('#close')
+    close.addEventListener('click', toggleOff)
+
     let localObject = localData[0][e.target.dataset.index]
 
- 
-        console.log(localObject['Item'])
-        console.log(localObject['Item Description'])
-        console.log(localObject['MASTER'])
+        
+        
+        if(localObject['imageURL1'] != ''){
+        const itemImageInside2 = document.createElement('img');
+        itemImageInside2.setAttribute('class', "mainImageInside2")
+        itemImageInside2.addEventListener("mouseover", showImage)
+        thumbnails.appendChild(itemImageInside2);
+        document.querySelector('.mainImageInside2').src = localObject['imageURL1'];
+        
+        }
+
+        if(localObject['imageURL2'] != ''){
+            const itemImageInside3 = document.createElement('img');
+            itemImageInside3.setAttribute('class', "mainImageInside3")
+            itemImageInside3.addEventListener("mouseover", showImage)
+            thumbnails.appendChild(itemImageInside3);
+            document.querySelector('.mainImageInside3').src = localObject['imageURL2'];
+        }
+        
+        if(localObject['imageURL1'] != ''){
+        
+        const itemImageInside = document.createElement('img');
+        itemImageInside.setAttribute('class', "mainImageInside")
+        mainFocusImage.appendChild(itemImageInside);
+        document.querySelector('.mainImageInside').src = localObject['imageURL1'];
+        }
+
+        const itemTitle = document.createElement('h4');
+        itemTitle.innerHTML = localObject['Name']
+        productInfo.appendChild(itemTitle)
+
+        const itemNum = document.createElement('p');
+        itemNum.setAttribute('class', 'itemNum')
+        itemNum.innerHTML = `#${localObject['Item number']}`
+        productInfo.appendChild(itemNum)
+
+        const description = document.createElement('p');
+        description.setAttribute('class', 'description')
+        description.innerHTML = localObject['Item description']
+        productInfo.appendChild(description)
+
+        const packaging = document.createElement('p');
+        packaging.setAttribute('class', 'packaging')
+        packaging.innerHTML = `Packaging: ${localObject['Packaging']}`
+        productInfo.appendChild(packaging)
+
+        const pricing2 = document.createElement('p');
+        pricing2.setAttribute('class', 'pricing2')
+        pricing2.innerHTML = localObject['Pricing']
+        productInfo.appendChild(pricing2)
+
+
+        
+
+        
+
+        
+      
 
     // const focusContent = e.target.parentElement.innerHTML;
-    // focusStyle.addEventListener('click', toggleOff)
+   
     // focusStyle.innerHTML = focusContent;
-    //     if(toggleOn === false){
-    //     toggleOn = true;
-    //     focusStyle.style.display = 'block';
-    //     focusStyle.setAttribute('class', 'itemFocus');
-       
-    //     } 
+        // if(toggleOn === false){
+        // toggleOn = true;
+        $(focusStyle).fadeIn();
+        // focusStyle.style.display = 'block';
+        // } 
      
   }
 
@@ -56,7 +120,7 @@ const focusIn = function(e){
 
 
 $(document).ready(function(){
-    $.getJSON("onHand2.json", function(data){
+    $.getJSON("testZoo.json", function(data){
 
             
             for(let key in data){
@@ -71,17 +135,18 @@ $(document).ready(function(){
              
 
 
-            if(item['Image']){
+           
                 const itemImage = document.createElement('img');
-                itemImage.setAttribute('class', "mainImage")
+                itemImage.setAttribute('class', `mainImage${data.indexOf(item)}`);
+                itemImage.setAttribute('id', 'mainImage');
                 itemImage.setAttribute('data-index', data.indexOf(item));
                 itemImage.addEventListener("click", focusIn)
                 itemContainer.appendChild(itemImage);
-                document.querySelector('.mainImage').src = item['Image'];
-               }
+                document.querySelector(`.mainImage${data.indexOf(item)}`).src = item['imageURL1'];
+         
 
              const title = document.createElement('h3');
-             title.innerHTML = item['Item Description'];
+             title.innerHTML = item['Name'];
              title.setAttribute('data-index', data.indexOf(item));
              title.addEventListener("click", focusIn)
              itemContainer.appendChild(title);
@@ -91,7 +156,7 @@ $(document).ready(function(){
             //  itemContainer.appendChild(itemNum);
 
              const price = document.createElement('p');
-             price.innerHTML = `$${item['Standard Cost']}`;
+             price.innerHTML = `${item['Pricing']}`;
              price.setAttribute('data-index', data.indexOf(item));
              price.addEventListener("click", focusIn)
              itemContainer.appendChild(price);

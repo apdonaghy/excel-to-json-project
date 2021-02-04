@@ -1,0 +1,62 @@
+[
+    {
+        "Item number": "PAPU",
+        "Name": "Paleo Puzzlers",
+        "Item description": "Open the eggs and construct a dino skeleton that is 9-10\u201d size. Four assorted pre-historic animals, T-Rex, Stegosaurus, Brachiosaurus and Triceratops. ",
+        "Pricing": "$3.00 each / $24.00 Display (8 pc.) ",
+        "Packaging": "Display Box",
+        "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000801.jpg",
+        "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000801.jpg",
+        "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/EMSer1SYFAA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    },
+    {
+        "Item number": "ERPE",
+        "Name": "Penguin Erase-amals",
+        "Item description": "March with this penguin all across your mistakes. 3.5\u201d tall and includes a penguin fact sheet inside.",
+        "Pricing": "$0.50 each / $6.00 Pack (12 pc.)",
+        "Packaging": "Acetate Box",
+        "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000910.jpg",
+        "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000910.jpg",
+        "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/aZsXi_8MB3M\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    },
+    {
+        "Item number": "ERST",
+        "Name": "Sea Turtle Erase-amals",
+        "Item description": "Erase mistakes with this highly detailed Sea Turtle. 4\u201d eraser with facts about Sea Turtles inside.",
+        "Pricing": "$0.50 each / $6.00 Pack (12 pc.)",
+        "Packaging": "Acetate Box",
+        "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000911.jpg",
+        "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000911.jpg",
+        "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/5LyT_9lbncQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    },
+    {
+        "Item number": "STMCR",
+        "Name": "Mega Stretch Crocodile",
+        "Item description": "Swim into a world of fun with our super stretchy Crocodile with its highly realistic coloration. Give the tail a tug and it will stretch a long ways!\u00a0\u00a0",
+        "Pricing": "$2.50 each / $60.00 Pack (24 pc.)",
+        "Packaging": "Blister Card",
+        "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000648.jpg",
+        "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000648.jpg",
+        "Video": ""
+    },
+    {
+        "Item number": "STMFR",
+        "Name": "Mega Stretch Frog",
+        "Item description": "Hop into a world of fun with these realistically decorated Rainforest Dart Frogs.\u00a0\u00a0 Give the legs a pull and watch them stretch forever!\u00a0Assorted colors.",
+        "Pricing": "$2.50 each / $60.00 Pack (24 pc.)",
+        "Packaging": "Blister Card",
+        "imageURL1": "https://www.playvisions.com/DSN/wwwplayvisionscom/Commerce/ProductImages/mn1_000110.jpg",
+        "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000110.jpg",
+        "Video": ""
+    },
+    {
+        "Item number": "STMSN",
+        "Name": "Mega Stretch Snake",
+        "Item description": "Slither into stretchy splendor with these super colorful, highly realistic decorated snakes. Try to stretch them out to your arm\u2019s length and beyond. Assorted colors.",
+        "Pricing": "$2.50 each / $60.00 Pack (24 pc.)",
+        "Packaging": "Blister Card",
+        "imageURL1": "https://www.playvisions.com/DSN/wwwplayvisionscom/Commerce/ProductImages/mn1_000109.jpg",
+        "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000109.jpg",
+        "Video": ""
+    }
+]

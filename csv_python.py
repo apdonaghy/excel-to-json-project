@@ -34,6 +34,6 @@ def csv_to_json(csvFilePath, jsonFilePath):
         jsonString = json.dumps(jsonArray, indent=4)
         jsonf.write(jsonString)
           
-csvFilePath = r'onHand.csv'
-jsonFilePath = r'onHand2.json'
+csvFilePath = r'testZoo.csv'
+jsonFilePath = r'testZoo.json'
 csv_to_json(csvFilePath, jsonFilePath)

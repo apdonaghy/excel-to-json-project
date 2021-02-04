@@ -47,44 +47,13 @@
           height:65px;
       }
 
-      .itemContainer{
-          flex:1 0 26.5%;
-          margin:10px;
-          background-image: linear-gradient(to bottom, white, white, white, #f7f7f7);
-          border-radius: 5px;
-          /* box-shadow:0 0 10px lightgray ; */
-          cursor:pointer;
-          padding:25px;
+      footer{
+          background-image: linear-gradient(to right, #2aafec, #3b70ed);
+          width:100%;
+          height:125px;
+          margin-top:5em;
       }
-      .itemContainer:hover{
-        transition: .2s;
-            transform: scale(1.025);
-      }
-      h1{
-        font-family: 'Playfair Display', serif; 
-      }
-
-      h3{
-          cursor:pointer;
-      }
- 
-
-      #itemFocus{
-        display:none
-      }
-
-      .itemFocus{
-          position:fixed;
-          z-index:2;
-          width:100vw;
-          height:100vh;
-          transition: .2s;
-          background-color:white;
-          top: 0;
-      }
-
-
-    .logo{
+      .logo{
         width:18em;
         padding:9px;
         cursor:pointer;
@@ -109,25 +78,178 @@
         z-index:1;
         transition:.2s;
     }
-    .mainImage{
+
+      .itemContainer{
+          flex:1 0 26.5%;
+          margin:10px;
+          background-image: linear-gradient(to bottom, white, white, white, #f7f7f7);
+          border-radius: 5px;
+          /* box-shadow:0 0 10px lightgray ; */
+          cursor:pointer;
+          padding:25px;
+      }
+      .itemContainer:hover{
+        transition: .2s;
+            transform: scale(1.025);
+      }
+      h1{
+        font-family: 'Playfair Display', serif; 
+      }
+
+      h3{
+          cursor:pointer;
+          margin-bottom:5px;
+      }
+
+      h3:hover{
+          transition:.2s;
+          color:#3b70ed;
+      }
+ 
+
+      #itemFocus{
+        display:none
+      }
+
+      .itemFocus{
+          position:fixed;
+          z-index:2;
+          width:100vw;
+          height:100vh;
+          background-color:white;
+          top: 0;
+      }
+
+      .innerItemFocus{
+          margin: 0 auto;
+      }
+
+  
+   
+    #mainImage{
         display: block;
         margin: 0 auto;
         max-width: 100%;
         max-height: 300px;
+        margin-bottom:20px;
     }
 
+    #innerItemFocus{
+        margin: 0 auto;
+        display:flex;
+        width:80%;
+        padding-top:40px;
+    }
+    .mainImageInside2, .mainImageInside3{
+          width:100%;
+          margin-bottom:5px;
+          border: 3px solid rgb(228, 228, 228);
+          border-radius: 4px;
+          cursor:pointer;
+        }
+        .mainImageInside2:hover, .mainImageInside3:hover{
+            border: 3px solid #3b70ed;
+            border-radius: 4px;
+            transition:.2s;
+        }
+
+        .mainImageInside{
+          width:100%
+        }
+
+    #thumbnails{
+        width:10%;
+        height:auto;
+        margin:15px;
+    }
+
+    #mainFocusImage{
+        width:40%;
+        max-width:600px;
+        margin:15px;
+    }
+    #productInfo{
+        margin:15px;
+        width:40%;
+    }
+
+    #close{
+        width:34px;
+        font-size:3.5em;
+        font-weight: 200;
+        color:black;
+        border: 2px solid black;
+        border-radius: 50%;
+        padding:0 18px 0 18px;
+        cursor:pointer;
+        height:1.17em;
+      
+    }
+
+    #close:hover{
+        transition: .2s;
+        background-color: black;
+        color:white;
+        transform: scale(1.08);
+    }
+
+    h4{
+        font-size: 2.5em;
+    }   
+
+    .itemNum{
+        margin-top:5px;
+        font-size:1.25em;
+        color: #3b70ed;
+        /* background-color:black; */
+        padding:7px;
+        display:inline-block;
+        border:2px solid #3b70ed;
+        border-radius: 5px;
+    }
+
+    .description{
+        margin-top:15px;
+        font-size:1.20em;
+        line-height: 1.35em;
+    }
+
+    .packaging{
+        margin-top:25px;
+        font-weight: 600;
+    }
+
+    .pricing2{
+        margin-top:10px;
+        font-size:1.75em;
+        font-weight: 200;
+        color:#3b70ed;
+    }
+    
   </style>
 </head>
 <body>
     <div id="top"></div>
-    <div id="itemFocus"></div>
+    <div id="itemFocus" class="itemFocus">
+       
+        <div id="innerItemFocus">
+          
+            <div id="thumbnails"></div>
+            <div id="mainFocusImage"></div>
+            <div id="productInfo">
+                
+            </div> 
+            <span id="close">X</span>
+        </div>
+    </div>
    
     <header id="navbar">
         <div class="navContainer"><a href="#top"><img class="logo" src="pv_logo.svg"/></a></div>
     </header>
 
-        <h1>2021 Opportunity Buys</h1>
+        <h1>2021 Zoo Products</h1>
     <div class="container"></div>
+    <footer></footer>
     <script src="main.js"></script>
 </body>
 </html>

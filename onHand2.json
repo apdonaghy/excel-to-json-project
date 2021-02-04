@@ -2,8 +2,8 @@
     {
         "Item": "559BK",
         "Item Type": "1",
-        "Image": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000247.jpg",
-        "Image2":"https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000247.jpg",
+        "Image": "http://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000247.jpg",
+        "Image2":"http://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000247.jpg",
         "Item Description": "TONGZO (BULK)",
         "Primary Vendor": "GIAN003",
         "Product Line": "200",
@@ -33,6 +33,8 @@
     {
         "Item": "896G",
         "Item Type": "1",
+        "Image":"",
+        "Image2":"",
         "Item Description": "HYPER FLEX FLYER BULK, GREEN",
         "Primary Vendor": "EVER001",
         "Product Line": "200",
