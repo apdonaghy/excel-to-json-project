@@ -28,13 +28,25 @@ window.onscroll = function () {
     prevScrollpos = currentScrollPos;
 }
 
+const deleteFavorite = function(e){
+  
+    for(let obj in favorites){
+        if(e.target.dataset.index === favorites[obj].order){
+          favorites.splice(favorites.indexOf(favorites[obj]), 1);
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        }
+    }
+    console.log(favorites.length)
+    e.target.parentNode.remove();
+}
+
 
 let toggleOn = false;
 
 
 
 const toggleOff = function(){
- 
+    document.body.style.overflow = "scroll";
         $(focusStyle).fadeOut();
         thumbnails.innerHTML = '';
         mainFocusImage.innerHTML = '';
@@ -69,12 +81,27 @@ const dontShowClose = function(){
 function showSaved() {
     $(document.querySelector('.favoritesPanelOuter')).fadeIn()
     $(document.querySelector('.overlayGray')).fadeIn()
+    document.body.style.overflow = "hidden";
   }
 
   function dontShowSaved(){
     $(document.querySelector('.favoritesPanelOuter')).fadeOut()
     $(document.querySelector('.overlayGray')).fadeOut()
+    document.body.style.overflow = "scroll";
   }
+
+  function showNotification(){
+    document.querySelector(".addText").style.transform = "scale(1.08)";
+    document.querySelector(".addText").style.opacity = ".5";
+  // setTimeout(hideNotification(),3000);
+   setTimeout(function(){
+    document.querySelector(".addText").style.transform = "scale(1.0)";
+    document.querySelector(".addText").style.opacity = "1";
+   
+   }, 300);
+   
+ }
+
 
 
 const addItem = function(){
@@ -87,17 +114,29 @@ const addItem = function(){
       }
 
       if(!alreadyInFavorites){
+        showNotification()
+
+
       favorites.unshift(localData[0][localDataIndex])
 
       favorites[0].order = localDataIndex
       localStorage.setItem("favorites", JSON.stringify(favorites));
       x.innerHTML = '';
       for(let i = 0; i < favorites.length; i++){
+      const savedItemContainer = document.createElement('div');
+      savedItemContainer.setAttribute('class', 'savedItemContainer');
       const newSavedItem = document.createElement('p');
-      newSavedItem.setAttribute('data-index', localDataIndex);
+      newSavedItem.setAttribute('data-index', favorites[i].order);
       newSavedItem.addEventListener("click", focusIn)
-      newSavedItem.innerHTML = `-${favorites[i]['Name']}`
-      x.appendChild(newSavedItem);
+      newSavedItem.innerHTML = `${favorites[i]['Name']}`
+      const deleteBtn = document.createElement('span')
+      deleteBtn.setAttribute('data-index', favorites[i].order);
+      deleteBtn.addEventListener('click', deleteFavorite)
+      deleteBtn.setAttribute('class', 'deleteBtn');
+      deleteBtn.innerHTML = "REMOVE";
+      savedItemContainer.appendChild(newSavedItem);
+      savedItemContainer.appendChild(deleteBtn); 
+      x.appendChild(savedItemContainer);
       }
       
   } 
@@ -163,11 +202,11 @@ const focusIn = function(e){
         itemNum.setAttribute('class', 'itemNum');
         itemNum.innerHTML = `#${localObject['Item Number']}`;
         itemNumAddContainer.appendChild(itemNum);
-        const addTo = document.createElement('p')
-        addTo.setAttribute('class', 'addText')
+        const addTo = document.createElement('p');
+        addTo.setAttribute('class', 'addText');
         addTo.innerHTML = `<span class="plus">+</span> Add to Favorites`;
-        addTo.addEventListener('click', addItem)
-        itemNumAddContainer.appendChild(addTo)
+        addTo.addEventListener('click', addItem);
+        itemNumAddContainer.appendChild(addTo);
         productInfo.appendChild(itemNumAddContainer);
 
         const description = document.createElement('p');
@@ -193,6 +232,7 @@ const focusIn = function(e){
         // if(toggleOn === false){
         // toggleOn = true;
         $(focusStyle).fadeIn();
+        document.body.style.overflow = "hidden";
         // focusStyle.style.display = 'block';
         // } 
      
@@ -204,11 +244,20 @@ const storedfavorites = JSON.parse(localStorage.getItem("favorites"));
     favorites = storedfavorites;
     x.innerHTML = '';
     for(let i = 0; i < favorites.length; i++){
+    const savedItemContainer = document.createElement('div')
+    savedItemContainer.setAttribute('class', 'savedItemContainer');
     const newSavedItem = document.createElement('p');
     newSavedItem.setAttribute('data-index', favorites[i].order);
     newSavedItem.addEventListener("click", focusIn)
-    newSavedItem.innerHTML = `-${favorites[i]['Name']}`
-    x.appendChild(newSavedItem);
+    newSavedItem.innerHTML = `${favorites[i]['Name']}`
+    const deleteBtn = document.createElement('span')
+    deleteBtn.setAttribute('data-index', favorites[i].order);
+    deleteBtn.addEventListener('click', deleteFavorite)
+    deleteBtn.setAttribute('class', 'deleteBtn')
+    deleteBtn.innerHTML = "REMOVE"
+    savedItemContainer.appendChild(newSavedItem);
+    savedItemContainer.appendChild(deleteBtn); 
+    x.appendChild(savedItemContainer);
     }
     }
     $.getJSON("opportunity_buy.json", function(data){
@@ -221,8 +270,6 @@ const storedfavorites = JSON.parse(localStorage.getItem("favorites"));
              const item = data[key];
              const itemContainer = document.createElement('div');
              itemContainer.setAttribute('class', 'itemContainer')
-            //  itemContainer.setAttribute('data-index', data.indexOf(item));
-            //  itemContainer.addEventListener("click", focusIn)
              container.appendChild(itemContainer)
             
                     const itemImage = document.createElement('img');
@@ -255,7 +302,7 @@ const storedfavorites = JSON.parse(localStorage.getItem("favorites"));
              price.setAttribute('data-index', data.indexOf(item));
              price.addEventListener("click", focusIn)
              itemContainer.appendChild(price);
-             
+             item.order = data.indexOf(item)
           }   
    
         //   for(let key of data){
@@ -292,7 +339,7 @@ const storedfavorites = JSON.parse(localStorage.getItem("favorites"));
 
         //   }   
           localData.push(data);
-          
+          console.log(localData)
           
     }).fail(function(){
         console.log("An error has occurred.");
