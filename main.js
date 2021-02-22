@@ -1,6 +1,13 @@
 
 let localData = [];
 let localDataIndex;
+let favorites = [];
+let alreadyInFavorites = false;
+
+const storedfavorites = JSON.parse(localStorage.getItem("favorites"));
+
+const x =  document.querySelector(".favoritesPanel");
+
 const container = document.querySelector('.container') 
 const focusStyle = document.querySelector('#itemFocus')
 const thumbnails = document.querySelector('#thumbnails')
@@ -23,6 +30,7 @@ window.onscroll = function () {
 
 
 let toggleOn = false;
+
 
 
 const toggleOff = function(){
@@ -56,7 +64,50 @@ const dontShowClose = function(){
     document.querySelector('.textClose').innerHTML = '';
    }
 
+
+
+function showSaved() {
+    $(document.querySelector('.favoritesPanelOuter')).fadeIn()
+    $(document.querySelector('.overlayGray')).fadeIn()
+  }
+
+  function dontShowSaved(){
+    $(document.querySelector('.favoritesPanelOuter')).fadeOut()
+    $(document.querySelector('.overlayGray')).fadeOut()
+  }
+
+
+const addItem = function(){
+    
+    
+    for(let obj in favorites){
+       if (localDataIndex === favorites[obj].order){
+        alreadyInFavorites = true;
+       }
+      }
+
+      if(!alreadyInFavorites){
+      favorites.unshift(localData[0][localDataIndex])
+
+      favorites[0].order = localDataIndex
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      x.innerHTML = '';
+      for(let i = 0; i < favorites.length; i++){
+      const newSavedItem = document.createElement('p');
+      newSavedItem.setAttribute('data-index', localDataIndex);
+      newSavedItem.addEventListener("click", focusIn)
+      newSavedItem.innerHTML = `-${favorites[i]['Name']}`
+      x.appendChild(newSavedItem);
+      }
+      
+  } 
+  alreadyInFavorites = false;
+
+}
+
 const focusIn = function(e){
+
+    dontShowSaved()
 
     const close = document.querySelector('#close')
     close.addEventListener('click', toggleOff);
@@ -106,14 +157,22 @@ const focusIn = function(e){
         itemTitle.innerHTML = localObject['Name']
         productInfo.appendChild(itemTitle)
 
+        const itemNumAddContainer = document.createElement('div');
+        itemNumAddContainer.setAttribute('class', 'itemAddContainer');
         const itemNum = document.createElement('p');
-        itemNum.setAttribute('class', 'itemNum')
-        itemNum.innerHTML = `#${localObject['Item number']}`
-        productInfo.appendChild(itemNum)
+        itemNum.setAttribute('class', 'itemNum');
+        itemNum.innerHTML = `#${localObject['Item Number']}`;
+        itemNumAddContainer.appendChild(itemNum);
+        const addTo = document.createElement('p')
+        addTo.setAttribute('class', 'addText')
+        addTo.innerHTML = `<span class="plus">+</span> Add to Favorites`;
+        addTo.addEventListener('click', addItem)
+        itemNumAddContainer.appendChild(addTo)
+        productInfo.appendChild(itemNumAddContainer);
 
         const description = document.createElement('p');
         description.setAttribute('class', 'description')
-        description.innerHTML = localObject['Item description']
+        description.innerHTML = localObject['Item Description']
         productInfo.appendChild(description)
 
         const packaging = document.createElement('p');
@@ -125,12 +184,6 @@ const focusIn = function(e){
         pricing2.setAttribute('class', 'pricing2')
         pricing2.innerHTML = localObject['Pricing']
         productInfo.appendChild(pricing2)
-
-
-        
-
-        
-
         
       
 
@@ -145,13 +198,23 @@ const focusIn = function(e){
      
   }
 
-
-
-
-
 $(document).ready(function(){
-    $.getJSON("testZoo.json", function(data){
+const storedfavorites = JSON.parse(localStorage.getItem("favorites"));
+    if(storedfavorites && storedfavorites.length >= 1){
+    favorites = storedfavorites;
+    x.innerHTML = '';
+    for(let i = 0; i < favorites.length; i++){
+    const newSavedItem = document.createElement('p');
+    newSavedItem.setAttribute('data-index', favorites[i].order);
+    newSavedItem.addEventListener("click", focusIn)
+    newSavedItem.innerHTML = `-${favorites[i]['Name']}`
+    x.appendChild(newSavedItem);
+    }
+    }
+    $.getJSON("opportunity_buy.json", function(data){
+        const headline = document.getElementById('catalogName')
 
+        headline.innerHTML = data[0]['Catalog Name'];
             
             for(let key in data){
 
@@ -162,18 +225,20 @@ $(document).ready(function(){
             //  itemContainer.addEventListener("click", focusIn)
              container.appendChild(itemContainer)
             
-             
-
-
-           
-                const itemImage = document.createElement('img');
-                itemImage.setAttribute('class', `mainImage${data.indexOf(item)}`);
-                itemImage.setAttribute('id', 'mainImage');
-                itemImage.setAttribute('data-index', data.indexOf(item));
-                itemImage.addEventListener("click", focusIn)
-                itemContainer.appendChild(itemImage);
-                document.querySelector(`.mainImage${data.indexOf(item)}`).src = item['imageURL1'];
-         
+                    const itemImage = document.createElement('img');
+                    itemImage.setAttribute('class', `mainImage${data.indexOf(item)}`);
+                    itemImage.setAttribute('id', 'mainImage');
+                    itemImage.setAttribute('data-index', data.indexOf(item));
+                    itemImage.addEventListener("click", focusIn)
+                    itemContainer.appendChild(itemImage);
+                    document.querySelector(`.mainImage${data.indexOf(item)}`).src = item['imageURL1'];
+        
+                    if(item["Sold Out"] === "TRUE"){
+                        const soldOut = document.createElement('span');
+                        soldOut.setAttribute('class', 'soldOut')
+                        soldOut.innerHTML = 'Sold Out';
+                        itemContainer.appendChild(soldOut)
+                    }
 
              const title = document.createElement('h3');
              title.innerHTML = item['Name'];

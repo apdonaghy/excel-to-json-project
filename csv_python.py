@@ -16,12 +16,12 @@
 
 import csv, json 
 
+
 def csv_to_json(csvFilePath, jsonFilePath):
     jsonArray = []
       
     #read csv file
     with open(csvFilePath, encoding='utf-8') as csvf: 
-        #load csv file data using csv library's dictionary reader
         csvReader = csv.DictReader(csvf) 
 
         #convert each csv row into python dict
@@ -34,6 +34,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
         jsonString = json.dumps(jsonArray, indent=4)
         jsonf.write(jsonString)
           
-csvFilePath = r'testZoo.csv'
-jsonFilePath = r'testZoo.json'
+csvFilePath = r'opportunity_buy.csv'
+jsonFilePath = r'opportunity_buy.json'
 csv_to_json(csvFilePath, jsonFilePath)
+

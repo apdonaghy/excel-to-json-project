@@ -1,0 +1,86 @@
+[
+  {
+    "Item number": "PAPU",
+    "Name": "Paleo Puzzlers",
+    "Item description": "Open the eggs and construct a dino skeleton that is 9-10” size. Four assorted pre-historic animals, T-Rex, Stegosaurus, Brachiosaurus and Triceratops.",
+    "Pricing": "$3.00 each / $24.00 Display (8 pc.)",
+    "Packaging": "Display Box",
+    "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000801.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000801.jpg",
+    "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/EMSer1SYFAA\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+    "Catalog Name": "2021 Zoo Catalog",
+    "Sold Out": "TRUE"
+  },
+  {
+    "Item number": "ERPE",
+    "Name": "Penguin Erase-amals",
+    "Item description": "March with this penguin all across your mistakes. 3.5” tall and includes a penguin fact sheet inside.",
+    "Pricing": "$0.50 each / $6.00 Pack (12 pc.)",
+    "Packaging": "Acetate Box",
+    "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000910.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000910.jpg",
+    "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/aZsXi_8MB3M\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+    "Catalog Name": "",
+    "Sold Out": ""
+  },
+  {
+    "Item number": "ERST",
+    "Name": "Sea Turtle Erase-Amals",
+    "Item description": "Erase mistakes with this highly detailed Sea Turtle. 4” eraser with facts about Sea Turtles inside.",
+    "Pricing": "$0.50 each / $6.00 Pack (12 pc.) Acetate Box.",
+    "Packaging": "Acetate Box",
+    "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000911.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000911.jpg",
+    "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/5LyT_9lbncQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+    "Catalog Name": "",
+    "Sold Out": ""
+  },
+  {
+    "Item number": "STMCR",
+    "Name": "Mega Stretch Crocodile",
+    "Item description": "Swim into a world of fun with our super stretchy Crocodile with its highly realistic coloration. Give the tail a tug and it will stretch a long ways!",
+    "Pricing": "$2.50 each / $60.00 Pack (24 pc.)",
+    "Packaging": "Blister Card",
+    "imageURL1": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd1_mn_000648.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000648.jpg",
+    "Video": "",
+    "Catalog Name": "",
+    "Sold Out": ""
+  },
+  {
+    "Item number": "STMFR",
+    "Name": "Mega Stretch Frog",
+    "Item description": "Hop into a world of fun with these realistically decorated Rainforest Dart Frogs.   Give the legs a pull and watch them stretch forever! Assorted colors.",
+    "Pricing": "$2.50 each / $60.00 Pack (24 pc.)",
+    "Packaging": "Blister Card",
+    "imageURL1": "https://www.playvisions.com/DSN/wwwplayvisionscom/Commerce/ProductImages/mn1_000110.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000110.jpg",
+    "Video": "",
+    "Catalog Name": "",
+    "Sold Out": ""
+  },
+  {
+    "Item number": "STMSN",
+    "Name": "Mega Stretch Snake",
+    "Item description": "Slither into stretchy splendor with these super colorful, highly realistic decorated snakes. Try to stretch them out to your arm’s length and beyond. Assorted colors.",
+    "Pricing": "$2.50 each / $60.00 Pack (24 pc.)",
+    "Packaging": "Blister Card",
+    "imageURL1": "https://www.playvisions.com/DSN/wwwplayvisionscom/Commerce/ProductImages/mn1_000109.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000109.jpg",
+    "Video": "",
+    "Catalog Name": "",
+    "Sold Out": "TRUE"
+  },
+  {
+    "Item number": "SQSH",
+    "Name": "Shark Squirt",
+    "Item description": "Da dun, da dun, da dun.. This shark is all squirt and no bite.",
+    "Pricing": "$3.50 each / $84.00 Pack (24 pc.)",
+    "Packaging": "Hang Tag.",
+    "imageURL1": "https://www.playvisions.com/DSN/wwwplayvisionscom/Commerce/ProductImages/mn1_000118.jpg",
+    "imageURL2": "https://www.playvisions.com//DSN/wwwplayvisionscom/Commerce/ProductImages/prd2_mn_000118.jpg",
+    "Video": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/84qrBjSeu8M\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+    "Catalog Name": "",
+    "Sold Out": ""
+  }
+]
